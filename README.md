@@ -1,8 +1,8 @@
-# Dugong user-interface components library
+# Dugong framework
 
 ## Description
 
-UI components used by the Dugong framework.
+The Dugong framework.
 
 ## How-to
 

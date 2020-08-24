@@ -1,19 +1,17 @@
 {
-  "name": "sudah_kudugong",
+  "name": "dugong",
   "version": "1.0.0",
-  "description": "Dugong user-interface components library",
+  "description": "Dugong framework",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/mocha/bin/_mocha --opts ./mocha.opts ./src/*/*.tests.js",
     "start": "node index.js",
-    "dev-server": "node dev_server.js",
-    "build": "webpack",
-    "storybook": "start-storybook"
+    "dev": "node dev_server.js",
+    "build": "webpack"
   },
   "keywords": [
     "dugong",
-    "react",
-    "ui"
+    "react"
   ],
   "author": "Arie M. Prasetyo",
   "license": "ISC",
@@ -32,10 +30,6 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.4",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/react": "^5.3.19",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
