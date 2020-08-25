@@ -5,7 +5,7 @@
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config');
+const config = require('./webpack.dev');
 
 /**
  * Webpack dev server implementation to allow for React Hot Loader usage.

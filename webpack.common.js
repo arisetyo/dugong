@@ -4,16 +4,15 @@
  */
 
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
  
 const port = 3000;
 const host = 'localhost';
  
 module.exports = {
     bail: true,
-    devtool: 'eval',
     entry: [
         'webpack-dev-server/client?http://' + host + ':' + port,
         'webpack/hot/only-dev-server',
@@ -73,9 +72,9 @@ module.exports = {
         ]
     },
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: __dirname + '/static/index.html',

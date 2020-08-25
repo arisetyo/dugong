@@ -5,7 +5,7 @@
 
 import path from 'path';
 import express from 'express';
-import {devServer as config} from './webpack.config';
+import {devServer as config} from './webpack.dev';
 
 const app = express();
 
