@@ -9,7 +9,7 @@ import {devServer as config} from './webpack.dev';
 
 const app = express();
 
-const staticPath = path.join(__dirname, '/curator');
+const staticPath = path.join(__dirname, '/build');
 app.use(express.static(staticPath));
 
 app.listen(config.port, '0.0.0.0', function onStart(err) {

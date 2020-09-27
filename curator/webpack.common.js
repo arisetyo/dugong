@@ -19,7 +19,7 @@ module.exports = {
         __dirname + '/src/index.js',
     ],
     output: {
-        path: __dirname + '/curator',
+        path: __dirname + '/build',
         filename: 'bundle.js'
     },
     module: {
