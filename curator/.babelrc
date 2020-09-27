@@ -19,7 +19,7 @@
 					"removeUndefined": false
 				}]
 			],
-			"comments": false,
+			"comments": false
 		},
 		"test": {
 			"presets": [
