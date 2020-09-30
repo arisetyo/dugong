@@ -56,3 +56,43 @@ app.post('/api/v1/log', async (req, res) => {
 
 // = = = = = export app = = = = = //
 module.exports = app;
+
+
+/** 
+ * 
+ * example of MySQL connection using Node JS
+ * 
+ * */
+
+const mysql = require('mysql');
+
+const con_mysql = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'm4c4d4m14',
+  database: 'database_for_tests'
+});
+
+con_mysql.connect( err => {
+  if (err) throw err;
+  console.log('Connected!');
+});
+
+const q = 'select * from member';
+
+con_mysql.query( q, (err,rows) => {
+  if(err) throw err;
+
+  console.log('Data received from Db:');
+  
+  rows.map( obj => {
+    console.log(`id ${obj.id}`);
+    console.log(`name ${obj.firstname} ${obj.lastname}`);
+  });
+});
+
+con_mysql.end( err => {
+  // The connection is terminated gracefully
+  // Ensures all remaining queries are executed
+  // Then sends a quit packet to the MySQL server.
+});
