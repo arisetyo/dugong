@@ -37,17 +37,17 @@ app.get('/', (_, res) => {
 /**
  * 1. Get logs
  */
-app.get('/api/v1/logs', async (_, res) => await LogModel.retrieve(res));
+app.get('/api/v1/logs', (_, res) => LogModel.retrieve(res));
 
 /**
  * 2. Create a log
  */
-app.post('/api/v1/log', async (req, res) => await LogModel.create(req.body, res));
+app.post('/api/v1/log', (req, res) => LogModel.create(req.body, res));
 
 /**
  * 3. Get dummy mysql
  */
-app.get('/api/v1/members', async (_, res) => await CategoryModel.retrieve(mysqlPool, res));
+app.get('/api/v1/members', (_, res) => CategoryModel.retrieve(mysqlPool, res));
 
 // export app
 module.exports = app;

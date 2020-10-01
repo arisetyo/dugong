@@ -8,7 +8,7 @@
 /**
  * retrieve member entries
  */
-const retrieve = async (pool, res) => {
+const retrieve = (pool, res) => {
   const query = 'select * from member';
 
   pool.query(query, (err,rows) => {
