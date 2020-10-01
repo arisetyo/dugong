@@ -1,6 +1,7 @@
 /**
- * controller for Log model
+ * model-controller for Log collection
  * @author: Arie M. Prasetyo (2020)
+ * @module MongoDB
  */
 
 const LogModel = require('./logSchema');
@@ -27,7 +28,7 @@ const retrieve = async res => {
 };
 
 
-// export controller module
+// export module
 module.exports = {
   create,
   retrieve

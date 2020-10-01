@@ -2,7 +2,6 @@
  * schema for logs collection
  * @author Arie M. Prasetyo
  * @copyright 2020
- * @module MongoDB
  */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -22,4 +21,5 @@ const LogSchema = new Schema({
   createdAt: {type: Date, default: Date.now}
 });
 
+// export schema
 module.exports = mongoose.model('Log', LogSchema);

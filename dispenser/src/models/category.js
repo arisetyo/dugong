@@ -1,5 +1,5 @@
 /**
- * schema for category collection
+ * model-controller for Category table
  * @author Arie M. Prasetyo
  * @copyright 2020
  * @module MySQL
@@ -18,7 +18,7 @@ const retrieve = (pool, res) => {
 };
 
 
-// export controller module
+// export module
 module.exports = {
   retrieve
 };

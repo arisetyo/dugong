@@ -27,6 +27,8 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// = = = = = = = = API ENDPOINTS = = = = = = = =
 /**
  * default API endpoint
  */
@@ -48,6 +50,7 @@ app.post('/api/v1/log', (req, res) => LogModel.create(req.body, res));
  * 3. Get dummy mysql
  */
 app.get('/api/v1/members', (_, res) => CategoryModel.retrieve(mysqlPool, res));
+
 
 // export app
 module.exports = app;
