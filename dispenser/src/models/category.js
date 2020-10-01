@@ -6,7 +6,13 @@
  */
 
 /**
+ * @TODO change the database
+ */
+
+/**
  * retrieve member entries
+ * @param {*} pool 
+ * @param {*} res 
  */
 const retrieve = (pool, res) => {
   const query = 'select * from member';

@@ -1,7 +1,7 @@
 /**
  * dugong-backend
  * backend REST API server of Dugong, main application file
- * @author: Arie M. Prasetyo (2020)
+ * @author Arie M. Prasetyo (2020)
  */
 
 const mysql = require('mysql');
@@ -51,6 +51,9 @@ app.post('/api/v1/log', (req, res) => LogModel.create(req.body, res));
  */
 app.get('/api/v1/members', (_, res) => CategoryModel.retrieve(mysqlPool, res));
 
+/**
+ * 4. Create dummy mysql
+ */
 
 // export app
 module.exports = app;

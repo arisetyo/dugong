@@ -1,7 +1,7 @@
 /**
  * dugong-backend
  * mongodb configs
- * @author: Arie M. Prasetyo (2020)
+ * @author Arie M. Prasetyo (2020)
  */
 
 // MongoDB configuration
@@ -13,12 +13,15 @@ const MONGO_DB_CONF = {
   useUnifiedTopology: true
 }
 
+/**
+ * @TODO change the database
+ */
 // MySQL configuration
 const MYSQL_CONF = {
   host: 'localhost',
   port: '3306',
   user: 'root',
-  password: 'm4c4d4m14',
+  password: 'pwd',
   database: 'database_for_tests',
   connectionLimit : 10,
 };

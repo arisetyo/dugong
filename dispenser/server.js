@@ -1,7 +1,7 @@
 /**
  * dugong-backend
  * main access for backend server
- * @author: Arie M. Prasetyo (2020)
+ * @author Arie M. Prasetyo (2020)
  */
 
 const mongoose = require('mongoose');
