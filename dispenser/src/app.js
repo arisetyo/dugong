@@ -4,10 +4,16 @@
  * @author: Arie M. Prasetyo (2020)
  */
 
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const express = require('express');
 //
-const Log = require('./models/log');
+const LogModel = require('./models/log');
+const CategoryModel = require('./models/category');
+
+// connect to mysql
+const {MYSQL_CONF} = require('./config');
+const mysqlPool = mysql.createPool(MYSQL_CONF);
 
 /**
  * Main server app
@@ -29,70 +35,21 @@ app.get('/', (_, res) => {
 });
 
 /**
- * A. GET all log content
- * Load all log content
+ * 1. Get logs
  */
-app.get('/api/v1/logs', async (_, res) => {
-  const logs = await Log.find();
-  res.json(logs);
-});
+app.get('/api/v1/logs', async (_, res) => await LogModel.retrieve(res));
 
 /**
- * B. POST log
- * Save a log
- * 
- * @var url url
- * @var userId ID of the user
- * @var activity activity of the user
- * 
+ * 2. Create a log
  */
-app.post('/api/v1/log', async (req, res) => {
-  const {url, userId, activity} = req.body;
-  const log = new Log({url, userId, activity});
-  const savedLog = await log.save();
-  res.json(savedLog);
-});
+app.post('/api/v1/log', async (req, res) => await LogModel.create(req.body, res));
 
+/**
+ * 3. Get dummy mysql
+ */
+app.get('/api/v1/members', async (_, res) => await CategoryModel.retrieve(mysqlPool, res));
 
-// = = = = = export app = = = = = //
+// export app
 module.exports = app;
 
-
-/** 
- * 
- * example of MySQL connection using Node JS
- * 
- * */
-
-const mysql = require('mysql');
-
-const con_mysql = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'm4c4d4m14',
-  database: 'database_for_tests'
-});
-
-con_mysql.connect( err => {
-  if (err) throw err;
-  console.log('Connected!');
-});
-
-const q = 'select * from member';
-
-con_mysql.query( q, (err,rows) => {
-  if(err) throw err;
-
-  console.log('Data received from Db:');
-  
-  rows.map( obj => {
-    console.log(`id ${obj.id}`);
-    console.log(`name ${obj.firstname} ${obj.lastname}`);
-  });
-});
-
-con_mysql.end( err => {
-  // The connection is terminated gracefully
-  // Ensures all remaining queries are executed
-  // Then sends a quit packet to the MySQL server.
-});
+// EOF

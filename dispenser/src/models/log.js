@@ -1,23 +1,34 @@
 /**
- * schema for logs collection
+ * controller for Log model
  * @author: Arie M. Prasetyo (2020)
  */
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const LogModel = require('./logSchema');
 
 /**
- * Log schema
- * Collection for user activity log
- * Fields:
- * * url
- * * user id
- * * activity
+ * create a new log entry
+ * @var url url
+ * @var userId ID of the user
+ * @var activity activity of the user
+ * @var res Express respond object
  */
-const LogSchema = new Schema({
-  url: String,
-  userId: Number,
-  activity: String,
-  createdAt: {type: Date, default: Date.now}
-});
+const create = async ({url, userId, activity}, res) => {
+  const log = new LogModel({url, userId, activity});
+  res.json(await log.save());
+};
 
-module.exports = mongoose.model('Log', LogSchema);
+
+/**
+ * retrieve log entries
+ * @var res Express respond object
+ */
+const retrieve = async res => {
+  res.json(await LogModel.find());
+};
+
+
+// export controller module
+module.exports = {
+  create,
+  retrieve
+};

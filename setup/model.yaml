@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  version: "0.0.1"
+  title: Dugong sample configuration
+  description: "Dugong sample configuration file, using OpenAPI format."
+servers:
+  - url: http://localhost:3000/api/v1/
+tags:
+- name: Author
+  description: "All information about the author"
+- name: Category
+  description: "All information about the category"
+- name: Article
+  description: "All information about the article"
+components:
+  schemas:
+    Author:
+      type: object
+      description: "Model for author of an article"
+      required:
+      - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: "Stephen King"
+        email:
+          type: string
+        bio:
+          type: string
+    Category:
+      type: object
+      description: "Model for the category of an article"
+      required:
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: "Fiction"
+    Article:
+      type: object
+      description: "Model for an article"
+      required:
+        - title
+        - content
+        - author_id
+      properties:
+        id:
+          type: integer
+          format: int64
+        author_id:
+          type: integer
+          format: int64
+          $ref: '#/components/schemas/Author'
+        category_id:
+          type: integer
+          format: int64
+          $ref: '#/components/schemas/Category'
+        title:
+          type: string
+          example: "It"
+        content:
+          type: string
+          example: "It"
+        publish_date:
+          type: string
+          format: date
