@@ -18,7 +18,7 @@ const {MONGO_DB_URI, MONGO_DB_CONF} = require('./src/config');
 // connect mongodb
 mongoose.connect(MONGO_DB_URI, MONGO_DB_CONF, err => {
   if (err) console.error(err);
-  else console.log('Connected to the mongodb');
+  else console.log('Connected to MongoDB');
 });
 
 // Start the API server app

@@ -14,6 +14,7 @@ const CategoryModel = require('./models/category');
 // connect to mysql
 const {MYSQL_CONF} = require('./config');
 const mysqlPool = mysql.createPool(MYSQL_CONF);
+if (mysqlPool) console.log('Connected to the MySQL');
 
 /**
  * Main server app

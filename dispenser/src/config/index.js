@@ -21,9 +21,9 @@ const MYSQL_CONF = {
   host: 'localhost',
   port: '3306',
   user: 'root',
-  password: 'pwd',
-  database: 'database_for_tests',
-  connectionLimit : 10,
+  password: process.env.MYSQL_PWD ? process.env.MYSQL_PWD : 'password',
+  database: 'database_for_tests', // replace with `dugong_test`
+  connectionLimit : 100,
 };
 
 module.exports = {
