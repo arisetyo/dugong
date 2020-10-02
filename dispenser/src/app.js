@@ -53,9 +53,14 @@ app.post('/api/v1/log', (req, res) => LogModel.create(req.body, res));
 app.get('/api/v1/categories', (_, res) => CategoryModel.retrieve(mysqlPool, res));
 
 /**
- * 4. Create categories
+ * 4. Create category
  */
 app.post('/api/v1/category', (req, res) => CategoryModel.create(req.body, mysqlPool, res));
+
+/**
+ * 4. Update category
+ */
+app.put('/api/v1/category', (req, res) => CategoryModel.update(req.body, mysqlPool, res));
 
 // export app
 module.exports = app;

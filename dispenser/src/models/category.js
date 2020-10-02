@@ -5,7 +5,7 @@
  * @module MySQL
  */
 
-const {getSchemaName, getSchemaFieldNames} = require('./categorySchema');
+const {getSchemaName, getSchemaFieldNames, getPK, pairFieldValue} = require('./categorySchema');
 
 /**
  * create a new category entry
@@ -38,9 +38,25 @@ const retrieve = (pool, res) => {
   });
 };
 
+/**
+ * updae member entries
+ * @param {*} pool 
+ * @param {*} res 
+ */
+const update = ({id, fields, values}, pool, res) => {
+  const query = `UPDATE ${getSchemaName()} SET ${pairFieldValue(fields, values)} WHERE (${getPK()} = ${id})`;
+
+  pool.query(query, (err, rst) => {
+    if (err) throw err;
+
+    res.json({status: 'success', affectedRows: rst.affectedRows});
+  });
+};
+
 
 // export module
 module.exports = {
   create,
-  retrieve
+  retrieve,
+  update
 };

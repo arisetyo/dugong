@@ -10,6 +10,11 @@
 const _schemaName = 'category';
 
 /**
+ * PK field of this schema
+ */
+const _schemaPK = 'id';
+
+/**
  * properties of this schema
  */
 const _schemaProperties = [
@@ -35,6 +40,12 @@ const getSchemaName = () => (_schemaName);
 
 /**
  * public method
+ * return PK field name
+ */
+const getPK = () => (_schemaPK);
+
+/**
+ * public method
  * return schema's field names
  */
 const getSchemaFieldNames = (doJoin, includePK = true) => {
@@ -49,8 +60,22 @@ const getSchemaFieldNames = (doJoin, includePK = true) => {
   return ret;
 };
 
+/**
+ * public method
+ * pair fields and values for an update query syntax
+ */
+const pairFieldValue = (fields, values) => {
+  let pairs = [];
+  fields.forEach((field, index) => pairs.push(`${field}='${values[index]}'`));
+
+  return pairs.join(', ');
+}
+
+
 // export schema
 module.exports = {
   getSchemaName,
-  getSchemaFieldNames
+  getSchemaFieldNames,
+  getPK,
+  pairFieldValue
 };
