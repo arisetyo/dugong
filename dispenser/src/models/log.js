@@ -4,7 +4,7 @@
  * @module MongoDB
  */
 
-const LogModel = require('./logSchema');
+const Log = require('./logSchema');
 
 /**
  * create a new log entry
@@ -14,7 +14,7 @@ const LogModel = require('./logSchema');
  * @param {*} res Express respond object
  */
 const create = async ({url, userId, activity}, res) => {
-  const log = new LogModel({url, userId, activity});
+  const log = new Log({url, userId, activity});
   res.json(await log.save());
 };
 
@@ -24,7 +24,7 @@ const create = async ({url, userId, activity}, res) => {
  * @param {*} res Express respond object
  */
 const retrieve = async res => {
-  res.json(await LogModel.find());
+  res.json(await Log.find());
 };
 
 

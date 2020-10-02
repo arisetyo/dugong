@@ -6,7 +6,9 @@
  */
 
 /**
- * @TODO change the database
+ * @TODO 
+ * - change the database
+ * - create a schema for this model, eg. table name, fields
  */
 
 /**
@@ -16,6 +18,7 @@
  */
 const retrieve = (pool, res) => {
   const query = 'select * from member';
+  // const query = `select ${CategorySchema.props.join(', ')} from ${CategorySchema.table}`;
 
   pool.query(query, (err,rows) => {
     if(err) throw err;

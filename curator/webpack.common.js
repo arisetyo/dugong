@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
  
-const port = 3000;
+const port = 8000;
 const host = 'localhost';
  
 module.exports = {
