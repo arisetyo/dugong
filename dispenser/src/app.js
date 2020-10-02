@@ -48,13 +48,14 @@ app.get('/api/v1/logs', (_, res) => LogModel.retrieve(res));
 app.post('/api/v1/log', (req, res) => LogModel.create(req.body, res));
 
 /**
- * 3. Get dummy mysql
+ * 3. Get categories
  */
-app.get('/api/v1/members', (_, res) => CategoryModel.retrieve(mysqlPool, res));
+app.get('/api/v1/categories', (_, res) => CategoryModel.retrieve(mysqlPool, res));
 
 /**
- * 4. Create dummy mysql
+ * 4. Create categories
  */
+app.post('/api/v1/category', (req, res) => CategoryModel.create(req.body, mysqlPool, res));
 
 // export app
 module.exports = app;
