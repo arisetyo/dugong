@@ -1,0 +1,50 @@
+/**
+ * @author: Arie M. Prasetyo (2020)
+ */
+
+.Navigation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 44px;
+	margin: 0;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	z-index: 1;
+	display: flex;
+	box-shadow: #CCCCCC 0 2px 8px;
+	justify-content: space-between;
+}
+
+.Navigation > ul {
+	margin: 0 0 0 -8px;
+	padding: 0;
+}
+
+.Navigation > ul > li {
+	display: inline-block;
+	margin-right: 8px;
+	padding: 2px 8px;
+	color: var(--alt-primary-accent);
+	border-radius: 2px;
+}
+
+.Navigation > ul > li.selected {
+	background: var(--secondary-accent);
+}
+
+.Navigation > ul > li.detail {
+	margin-left: 20px;
+	color: var(--alt-primary-accent);
+}
+
+.Navigation > ul > li > a {
+	text-decoration: none;
+	cursor: pointer;
+	color: var(--primary-accent);
+}
+
+.Navigation > ul > li > a:hover {
+	color: var(--tertiary-accen);
+}

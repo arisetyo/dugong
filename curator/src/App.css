@@ -9,5 +9,17 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	padding: 12px;
+	padding: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12pt;
+}
+
+.App > h1 {
+  font-size: 160%;
+}
+
+.App p {
+  font-size: 90%;
+  text-align: justify;
+  line-height: 1.4;
 }

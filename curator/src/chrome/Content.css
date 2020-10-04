@@ -1,0 +1,14 @@
+/**
+ * Styles for the content container component
+ */
+
+ .Content {
+	margin: 0;
+	padding: 20px 20px 4px 20px;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: scroll;
+}
